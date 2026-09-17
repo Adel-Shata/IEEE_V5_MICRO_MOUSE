@@ -24,7 +24,7 @@ typedef enum {
 
 // The type of the queue elements, so you can configure it as you wish
 typedef struct{
-	int x, y;
+	int R, C;
 }queue_node;
 
 typedef struct{
@@ -37,16 +37,40 @@ typedef struct{
 
 /*Section: Function Declarations*/
 
-// Getting the status of the queue, whether it is full or empty or neither of them.
+/**
+ * @brief Get the status of the queue
+ * 
+ * @param queue 
+ * @return queue_status_t 
+ */
 queue_status_t queueStatus(queue_t *queue);
 
-// Initializing the queue
+/**
+ * @brief Initialize the queue
+ * 
+ * @param queue 
+ * @param queueList 
+ * @param size 
+ * @return func_status_t 
+ */
 func_status_t queueInit(queue_t *queue, queue_node *queueList , unsigned int size);
 
-// Inserting new element in the queue
+/**
+ * @brief Insert an element into the queue
+ * 
+ * @param queue 
+ * @param insertedElem 
+ * @return func_status_t 
+ */
 func_status_t enqueue(queue_t *queue, queue_node insertedElem);
 
-// Getting an element from the queue
+/**
+ * @brief Remove an element from the queue
+ * 
+ * @param queue 
+ * @param poppedElem 
+ * @return func_status_t 
+ */
 func_status_t dequeue(queue_t *queue, queue_node  *poppedElem);
 
 #endif /* FIFO_H_ */

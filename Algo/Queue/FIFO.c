@@ -25,8 +25,7 @@ queue_status_t queueStatus(queue_t *queue){
 	if(NULL == queue){
 		returnFlag = QUEUE_ERROR;
 	}
-	// The fist condition (queue->count == 0) will be true but I have added the remain condition just for safety
-	else if((queue->count == 0) ||(-1 == queue->top) || (-1 == queue->tail)){
+	else if((queue->count == 0)){
 		returnFlag = QUEUE_EMPTY;
 	}
 	else if(queue->size == queue->count){
