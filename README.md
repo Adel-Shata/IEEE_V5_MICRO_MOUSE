@@ -179,17 +179,3 @@ side target 500.
   front-stop threshold is `IR_FRONT_STOP_SIGNAL`.
 - **No upload / boot loop after adding code** — bisect: raw LEDC → driver →
   +encoders → +IMU, with one serial checkpoint per stage.
-
-## 10. Check before a maze run
-
-- `GOAL_C1/C2` are currently 3/3 (all four goals identical) — set the real
-  goal block for your maze size before running.
-- `loop()` drives in the wall-bounce block **and** again in the
-  flood-fill block each iteration while `robPos` updates once — reconcile
-  the two before trusting position tracking.
-- Verify the `+1 = right / +3 = left` turn mapping against the gyro sign
-  convention (`+` = CCW) on the floor.
-- `floodFill()` does not clear old `DISTANCE` values when new walls appear;
-  reset distances each call once exploration rewrites the map.
-- `WHEEL_BASE_MM` (80) and the `KP_/KI_/KD_` sets are still uncalibrated
-  estimates — tune on the floor.
